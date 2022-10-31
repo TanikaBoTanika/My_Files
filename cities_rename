@@ -1,0 +1,128 @@
+# сохраним все уникальные значения в таблицу
+locality_df = pd.DataFrame(df['locality_name'].unique(), columns=['locality_name'])
+
+# добавим в таблицу два столбца из пустых строк, куда затем сохраним тип и название населённого пункта
+locality_df['loc_type'] = ['']*len(locality_df)
+locality_df['loc_name'] = ['']*len(locality_df)
+
+# переберём все строки нашей таблицы
+for row_num in locality_df.index:
+    # сохраним название в переменную loc_str
+    loc_str = locality_df.loc[row_num, 'locality_name']
+    # заменим все ё на е
+    loc_str = loc_str.replace('ё', 'е')
+    
+    # если в названии нет пробелов, то это скорее всего город
+    if ' ' not in loc_str:
+        locality_df.loc[row_num, 'loc_name'] = loc_str
+        locality_df.loc[row_num, 'loc_type'] = ''
+    
+    # если название населённого пункта не указано, так и запишем
+    elif loc_str == 'не указан':
+        locality_df.loc[row_num, 'loc_name'] = 'не указан'
+        locality_df.loc[row_num, 'loc_type'] = ''
+    
+    # для всех остальных случаев
+    else:
+        # разобьём строку на отдельные слова (по умолчанию по пробелу)
+        loc_list = loc_str.split()
+        # пройдём по словам получившегося списка
+        for word in loc_list:
+            # если слово начинается с заглавной буквы, то это - название
+            if word.istitle():
+                # если название населённого пункта пусто
+                if locality_df.loc[row_num, 'loc_name']  == '':
+                    # присвоим название населённому пункту
+                    locality_df.loc[row_num, 'loc_name'] = word
+                # если в названии уже что-то есть
+                else:
+                    # добавим продолжение названия через пробел
+                    locality_df.loc[row_num, 'loc_name'] += ' ' + word
+            # если слово начинается со строчной буквы, то это = тип
+            else:
+                # если тип населённого пункта пуст
+                if locality_df.loc[row_num, 'loc_type']  == '':
+                    # присвоим тип 
+                    locality_df.loc[row_num, 'loc_type'] = word
+                # если в типе населённого пункта уже есть слова
+                else:
+                    # добавим новое слово через пробел
+                    locality_df.loc[row_num, 'loc_type'] += ' ' + word
+                    
+# Проверим какие типы населённых пунктов получились
+locality_df['loc_type'].value_counts()
+
+# в случае "поселком городского типа имени" слово имени вернём названию
+locality_df.loc[locality_df['loc_type']=='поселок городского типа имени', 'loc_name'] = \
+    'имени ' + locality_df.loc[locality_df['loc_type']=='поселок городского типа имени', 'loc_name']
+locality_df.loc[locality_df['loc_type']=='поселок городского типа имени', 'loc_type'] = \
+    'поселок'
+
+#  уберём слова "при железнодорожной"
+locality_df.loc[locality_df['loc_type']=='поселок при железнодорожной станции', 'loc_type'] = \
+    'поселок станции'
+
+#  вернём "станцию" в название
+locality_df.loc[locality_df['loc_type']=='поселок станции', 'loc_name'] = \
+    'станция ' + locality_df.loc[locality_df['loc_type']=='поселок станции', 'loc_name']
+locality_df.loc[locality_df['loc_type']=='поселок станции', 'loc_type'] = \
+    'поселок'
+
+#  переделаем "садоводческое некоммерческое товарищество"
+locality_df.loc[locality_df['loc_type']=='садоводческое некоммерческое товарищество', 'loc_type'] = \
+    'садовое товарищество'
+
+# вернём "69-й километр" названию
+locality_df.loc[locality_df['loc_type']=='поселок 69-й километр', 'loc_name'] += \
+    ' 69-й километр'
+locality_df.loc[locality_df['loc_type']=='поселок 69-й километр', 'loc_type'] = \
+    'поселок'
+
+# уберём все прилагательные у слова "посёлок"
+locality_df.loc[locality_df['loc_type'].str.contains('поселок'), 'loc_type'] = 'поселок'
+
+# проверим новые типы и нет ли одинаковых названий с разными типами
+display(locality_df['loc_type'].value_counts())
+
+# найдем разные типы населённых пунктов с одинаковыми названиями
+for find_name in locality_df['loc_name'].unique():
+    if locality_df[locality_df['loc_name']==find_name]['loc_type'].nunique()>1:
+        print(find_name, locality_df[locality_df['loc_name']==find_name]['loc_type'].unique())
+
+# заменим
+locality_df.loc[locality_df['loc_name'].isin(['Мурино','Кудрово']), \
+                'loc_type'] = ''
+
+locality_df.loc[locality_df['loc_name'].isin(['Федоровское', 'Рахья', 'Зимитицы', \
+                                            'Калитино', 'Приладожский', 'Щеглово', \
+                                            'Рабитицы', 'Любань']), \
+                'loc_type'] = 'поселок'
+
+locality_df.loc[locality_df['loc_name']=='Гарболово', 'loc_type'] = 'деревня'
+
+# проверим кто остался
+for find_name in locality_df['loc_name'].unique():
+    if locality_df[locality_df['loc_name']==find_name]['loc_type'].nunique()>1:
+        print(find_name, locality_df[locality_df['loc_name']==find_name]['loc_type'].unique())      
+
+# если название типа населенного пункта не пустое, то добавим в конец пробел
+locality_df.loc[locality_df['loc_type']!='', 'loc_type'] += ' '
+
+# соединим столбцы
+locality_df['locality'] = locality_df['loc_type'] + locality_df['loc_name']
+
+display(locality_df.sort_values(by='locality')['locality'].unique())
+
+# оставим в таблице только изначальный и итоговый столбцы
+locality_df=locality_df[['locality_name', 'locality']]
+
+# соединим наш датафрейм с таблицей названий
+df = df.merge(locality_df, on='locality_name', how='left')
+
+# присвоим старому столбцу новые названия и удалим лишний столбец
+df['locality_name'] = df['locality']
+df = df.drop('locality', axis=1)
+
+# проверим, что получилось
+print('Количество уникальных значений в названиях населённых пунктов:\033[1m', df['locality_name'].nunique(), '\033[0m')
+df.sample(5)
