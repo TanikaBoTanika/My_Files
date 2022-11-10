@@ -1,3 +1,3 @@
 ### Учебные проекты
-1. <a href=https://github.com/TanikaBoTanika/StudyProjects/blob/0bbf957e9658083ceecd130a9a4a125209af4b90/estate_market.ipynb> <b>estate_market.ipynb</b></a>  Учебный проект по анализу рынка недвижимости Лениградской области на основе данных Яндекс Недвижимости. 
+1. <a href=https://github.com/TanikaBoTanika/StudyProjects/blob/bf26a19406700d17a6636704bd848e879cb6bb82/estate_market.ipynb> <b>estate_market.ipynb</b></a>  Учебный проект по анализу рынка недвижимости Лениградской области на основе данных Яндекс Недвижимости. 
 Цель данного проекта - научиться обрабатывать и исследовать данные, находить зависимость изучаемой величины от различных параметров, строить графики и диаграммы с помощью библиотек Python.
