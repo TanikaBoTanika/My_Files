@@ -2,5 +2,5 @@
 1. <a href=https://github.com/TanikaBoTanika/StudyProjects/blob/bf26a19406700d17a6636704bd848e879cb6bb82/estate_market.ipynb> <b>estate_market.ipynb</b></a>  Учебный проект по анализу рынка недвижимости Лениградской области на основе данных Яндекс Недвижимости. 
 Цель данного проекта - научиться обрабатывать и исследовать данные, находить зависимость изучаемой величины от различных параметров, строить графики и диаграммы с помощью библиотек Python.
 
-2. <a href=https://github.com/TanikaBoTanika/StudyProjects/blob/fc0af7cf5ea05f3002931f7978182c2e1ab39e82/platform_games.ipynb> <b>platform_games.ipynb</b></a>  Изучение рынка игр для платформ и консолей по историческим данным за 36 лет (до 2016 года). 
+2. <a href=https://github.com/TanikaBoTanika/StudyProjects/blob/9e42c048ddc25c41d8396c5f2bc277189c301b98/platform_games.ipynb> <b>platform_games.ipynb</b></a>  Изучение рынка игр для платформ и консолей по историческим данным за 36 лет (до 2016 года). 
 Цель данного проекта - определить от чего зависит популярность игр, научиться формулировать и проверять гипотезы (статистическая библиотека scipy), визуализировать полученные результаты с помощью средств Pandas, Matplotlib, seaborn. 
