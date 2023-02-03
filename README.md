@@ -8,3 +8,5 @@
 3. <a href=https://github.com/TanikaBoTanika/StudyProjects/blob/cc274824cf64fc09e690064e1e10576a3c69c8c1/busines_metrics.ipynb> <b>busines-metrics.ipynb</b></a> Расчёт и визуализация бизнес-метрик по данным о рекламных каналах игрового приложения. Определение окупаемости маркетинга.
 
 4. <a href=https://github.com/TanikaBoTanika/StudyProjects/blob/d369e74f2c132265653e39832e3e28dc7827bd18/online_store_ab_test.ipynb> <b>online_store_ab_test.ipynb</b></a> Анализ результатов А/В-теста с применением статистических методов, приоретизация и проверка гипотез.
+
+5. <a href=https://github.com/TanikaBoTanika/StudyProjects/blob/a06126dfd56b76487eb48e9d2fd3fb47826afbc9/event_analysis.ipynb> <b>event_analysis.ipynb</b></a> Изучение воронки продаж и проверка результатов AA/B-теста с помощью статистических методов. 
