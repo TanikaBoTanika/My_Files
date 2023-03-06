@@ -8,3 +8,5 @@
 4. <a href=https://github.com/TanikaBoTanika/StudyProjects/blob/d369e74f2c132265653e39832e3e28dc7827bd18/online_store_ab_test.ipynb> <b>online_store_ab_test.ipynb</b></a> Анализ результатов А/В-теста с применением статистических методов, приоретизация и проверка гипотез.
 
 5. <a href=https://github.com/TanikaBoTanika/StudyProjects/blob/a06126dfd56b76487eb48e9d2fd3fb47826afbc9/event_analysis.ipynb> <b>event_analysis.ipynb</b></a> Изучение воронки продаж и проверка результатов AA/B-теста с помощью статистических методов. 
+
+5. <a href=https://github.com/TanikaBoTanika/StudyProjects/blob/ddcb2f79382fdfe83849b232448f5cd0a30e5e5f/geoanalysis.ipynb> <b>geoanalysis.ipynb</b></a> Анализ точек общественного питания Москвы по реальным данным на лето 2022 года для поиска подходящих мест расположения кофейни. Визуализация данных с помощью географических координат. 
