@@ -14,3 +14,5 @@
 7. <a href=https://github.com/TanikaBoTanika/StudyProjects/blob/9e2554475643a083ea58701544d22ef4be6a4f7a/Dzen_project.ipynb><b>dzen_presentation.jpunb</b></a> Небольшой проект по анализу действий пользователей сайта Яндекс Дзен.  <a href=https://github.com/TanikaBoTanika/StudyProjects/blob/e5c216b3f509d57b3ed0b3a4a6bbab0d89481c25/Dzen_presentation.pdf>Презентация</a> и <a href=https://public.tableau.com/app/profile/tanika3782/viz/dash_visits_16780291869280/Dashboard1>дашборд</a> .
 
 8. <a href=https://github.com/TanikaBoTanika/StudyProjects/blob/4e5a58c7e146d5a6c7895679ee79bfc63a4063c3/bank_clasters.ipynb><b>bank_clasters.ipynb</b></a> Анализ оттока клиентов банка, <a href=https://github.com/TanikaBoTanika/StudyProjects/blob/4e5a58c7e146d5a6c7895679ee79bfc63a4063c3/Bank_presentation.pdf>Презентация</a> и <a href=https://public.tableau.com/app/profile/tanika3782/viz/_16802092224080/sheet0>дашборд</a>.
+
+9. <a href=https://github.com/TanikaBoTanika/StudyProjects/blob/4dd6d6e2c5e5d69f9d9981e8347bf3f77afc631d/AB_test.ipynb>AB_test.ipynb</a> Анализ корректности проведения и результатов А/В-теста пользователей интернет-магазина. 
